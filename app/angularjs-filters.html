@@ -1,0 +1,31 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+	<title>AngularJS filters</title>
+	<script src="../js/angular.min.js"></script>
+	<script src="../js/controller.008.js"></script>
+	<link type="text/css" rel="stylesheet" href="../css/style.css" />
+</head>
+<body ng-app="myApp">
+	<div ng-controller="Empolyees">
+		<h1>AngularJS filters</h1>
+		Rows to display: <input type="number" ng-model="rowCount" min="0" max="5" step="1" ><br/><br/>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Date of Birth</th>
+				<th>Gender</th>
+				<th>Salary(number filters)</th>
+				<th>Salary(currency filters)</th>
+			</tr>
+			<tr ng-repeat="employee in employees | limitTo:rowCount">
+				<td>{{ employee.name | uppercase }}</td>
+				<td>{{ employee.birthday | date:"dd/MM/yyyy" }}</td>
+				<td>{{ employee.gender }}</td>
+				<td>{{ employee.salary | number:2 }}</td>
+				<td>{{ employee.salary | currency:"$":1 }}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

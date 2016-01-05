@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+	<title>AngularJS sort rows by table header</title>
+	<script src="../js/angular.min.js"></script>
+	<script src="../js/controller.008.js"></script>
+	<link type="text/css" rel="stylesheet" href="../css/style.css" />
+</head>
+<body ng-app="myApp">
+	<div ng-controller="Empolyees">
+		<h1>AngularJS sort rows by table header</h1>
+		<table>
+			<tr>
+				<th ng-click="sortData('name')">Name</th>
+				<th ng-click="sortData('birthday')">Date of Birth</th>
+				<th ng-click="sortData('gender')">Gender</th>
+				<th ng-click="sortData('salary')">Salary</th>
+			</tr>
+			<tr ng-repeat="employee in employees | orderBy:sortColumn:reverseSort">
+				<td>{{ employee.name | uppercase }}</td>
+				<td>{{ employee.birthday | date:"dd/MM/yyyy" }}</td>
+				<td>{{ employee.gender }}</td>
+				<td>{{ employee.salary | number:2 }}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

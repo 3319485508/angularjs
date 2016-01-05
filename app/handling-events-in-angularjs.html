@@ -1,0 +1,30 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+	<title>Handling events in AngularJS</title>
+	<script src="../js/angular.min.js"></script>
+	<script src="../js/controller.007.js"></script>
+	<link type="text/css" rel="stylesheet" href="../css/style.css" />
+</head>
+<body ng-app="myApp">
+	<div ng-controller="myController">
+		<h1>Handling events in AngularJS</h1>
+		<table border="1">
+			<tr>
+				<th>Name</th>
+				<th>Likes</th>
+				<th>Dislikes</th>
+				<th>Like/Dislike</th>
+			</tr>
+			<tr ng-repeat="technology in technologies">
+				<td> {{ technology.name }} </td>
+				<td> {{ technology.like }} </td>
+				<td> {{technology.dislike }} </td>
+				<td> <input type="button" ng-click="incrementLike(technology)" value="Like"> / <input type="button" ng-click="incrementDislike(technology)" value="Dislike"></td>
+			</tr>
+			
+			
+		</table>
+	</div>
+</body>
+</html>
