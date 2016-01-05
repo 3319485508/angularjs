@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="myApp">
+<head>
+	<title>Search filter in AngularJS</title>
+	<script src="../js/angular.min.js"></script>
+	<script src="../js/controller.009.js"></script>
+	<link type="text/css" rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+	<div ng-controller="Empolyees">
+		<h1>Search filter in AngularJS</h1>
+		<input type="text" placeholder="Search employees" ng-model="searchText.name"><br><br>
+		<table>
+			<tr>
+				<th>Name</th>
+				<th>Date of Birth</th>
+				<th>Gender</th>
+				<th>Salary</th>
+			</tr>
+			<tr ng-repeat="employee in employees | filter:searchText">
+				<td>{{ employee.name }}</td>
+				<td>{{ employee.birthday | date:"dd/MM/yyyy" }}</td>
+				<td>{{ employee.gender }}</td>
+				<td>{{ employee.salary | number:2 }}</td>
+      </tr>
+		</table>
+	</div>
+</body>
+</html>
